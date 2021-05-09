@@ -10,17 +10,19 @@
 //SSG - POSSO MONTAR UMA PAGINA HTML ESTATICA POR EXEMPLO SE
 // A PAGINA SO MUDA O CONTEUDO 1 X POR DIA, SO VAI NO SRVIDOR UMA VEZ POR DIA
 
+import { useContext } from 'react';
+import { format, parseISO } from 'date-fns';
+import { GetStaticProps } from 'next';
+
 import Image from 'next/image';
 import Link from 'next/link';
-import { GetStaticProps } from 'next';
-import { format, parseISO } from 'date-fns';
 import ptBR from 'date-fns/locale/pt-BR';
 
-import styles from './home.module.scss';
-
-
+import { PlayerContext } from '../contexts/PlayerContext';
 import { api } from '../services/api';
 import { convertDurationToTimeString } from '../utils/convertDurationToTimeString';
+
+import styles from './home.module.scss';
 
 type Episode = {
   id: string;
@@ -42,12 +44,12 @@ type HomeProps = {
 export default function Home({ latestEpisodes, allEpisodes }: HomeProps) {
   //efeito colateral e quando algo mudar na minha aplicação quero que aconteça tal cosia
 
-  // console.log(props.episodes);
+  const {play} = useContext(PlayerContext)
 
   return (
     <div className={styles.homepage}>
       <section className={styles.latestEpisodes}>
-        <h2>Últimos Lançamentos</h2>
+        <h2>Últimos Lançamentos </h2>
 
         <ul>
           {latestEpisodes.map(episode => {
@@ -72,7 +74,7 @@ export default function Home({ latestEpisodes, allEpisodes }: HomeProps) {
 
                 </div>
 
-                <button type='button'>
+                <button type='button' onClick={() => play(episode)}>
                   <img src="/play-green.svg" alt="Tocar Episódio"></img>
                 </button>
               </li>
