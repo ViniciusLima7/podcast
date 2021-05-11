@@ -8,6 +8,7 @@ import styles from './episode.module.scss';
 import Image from 'next/image';
 import Link from 'next/link';
 import { usePlayer } from '../../contexts/PlayerContext';
+import Head from 'next/head';
 
 
 type Episode = {
@@ -29,10 +30,13 @@ type EpisodeProps = {
 }
 
 export default function Episode({ episode }: EpisodeProps) {
-const{ play} = usePlayer();
+    const { play } = usePlayer();
 
     return (
         <div className={styles.episode}>
+            <Head>
+                <title>{episode.title} | Podcast...</title>
+            </Head>
             <div className={styles.thumbnailContainer}>
                 <Link href="/">
                     <button type='button'>
@@ -46,7 +50,7 @@ const{ play} = usePlayer();
                     src={episode.thumbnail}
                     objectFit="cover">
                 </Image>
-                <button type="button" onClick={()=> play(episode)}>
+                <button type="button" onClick={() => play(episode)}>
                     <img src="/play.svg" alt="Tocar Episódio" />
                 </button>
             </div>
@@ -97,4 +101,4 @@ export const getStaticProps: GetStaticProps = async (ctx) => {
         },
         revalidate: 60 * 60 * 24, //24 horas
     }
-} 
+}
