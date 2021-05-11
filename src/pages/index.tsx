@@ -10,7 +10,6 @@
 //SSG - POSSO MONTAR UMA PAGINA HTML ESTATICA POR EXEMPLO SE
 // A PAGINA SO MUDA O CONTEUDO 1 X POR DIA, SO VAI NO SRVIDOR UMA VEZ POR DIA
 
-import { useContext } from 'react';
 import { format, parseISO } from 'date-fns';
 import { GetStaticProps } from 'next';
 
@@ -18,7 +17,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import ptBR from 'date-fns/locale/pt-BR';
 
-import { PlayerContext } from '../contexts/PlayerContext';
+import { PlayerContext, usePlayer } from '../contexts/PlayerContext';
 import { api } from '../services/api';
 import { convertDurationToTimeString } from '../utils/convertDurationToTimeString';
 
@@ -44,7 +43,7 @@ type HomeProps = {
 export default function Home({ latestEpisodes, allEpisodes }: HomeProps) {
   //efeito colateral e quando algo mudar na minha aplicação quero que aconteça tal cosia
 
-  const {playList} = useContext(PlayerContext);
+  const {playList} = usePlayer();
   const episodeList = [...latestEpisodes,...allEpisodes];
 
 
