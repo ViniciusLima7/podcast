@@ -12,7 +12,7 @@ $ git clone <https://github.com/ViniciusLima7/podcast>
 
 ### OBS: Você pode substituir o npm por Yarn
 
-## Acesse a pasta do projeto no terminal/cmd
+#### Acesse a pasta do projeto no terminal/cmd
 $ cd podcastreactnext
 
 ## Instale as dependências
