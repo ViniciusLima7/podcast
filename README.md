@@ -33,6 +33,9 @@ $ npm run dev
 As seguintes ferramentas foram usadas na construção do projeto:
 
 Node.js
+
 React
+
 Next.js
+
 TypeScript
