@@ -15,18 +15,18 @@ $ git clone <https://github.com/ViniciusLima7/podcast>
 #### Acesse a pasta do projeto no terminal/cmd
 $ cd podcastreactnext
 
-## Instale as dependências
+#### Instale as dependências
 $ npm install next
 
-## Execute o arquivo server.json para emular uma api
+#### Execute o arquivo server.json para emular uma api
 $ npm run server
 
-## O servidor inciará na porta:3333 - acesse <http://localhost:3333>
+#### O servidor inciará na porta:3333 - acesse <http://localhost:3333>
 
-## Execute a aplicação em modo de desenvolvimento
+#### Execute a aplicação em modo de desenvolvimento
 $ npm run dev
 
-## O servidor inciará na porta:3333 - acesse <http://localhost:3000>
+#### O servidor inciará na porta:3333 - acesse <http://localhost:3000>
 
 
 🛠 Tecnologias
